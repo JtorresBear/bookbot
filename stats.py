@@ -6,8 +6,11 @@ def get_number_of_words(words):
         file_contents = f.read()
 
     collection_of_words = file_contents.split()
-    print(f"{len(collection_of_words)} words found in the document")
+    #print(f"{len(collection_of_words)} words found in the document")
+    return len(collection_of_words)
 
+# returns a dictionary with characters for keys 
+# and counts for how many times the character appears in the text
 
 def character_count( long_string):
     characters_dictionary = {}
@@ -22,5 +25,27 @@ def character_count( long_string):
 
     return characters_dictionary
 
+def sort_on(items):
+    return items["num"]
 
-character_count("long string i think of EVERY LETTER IS BIG ON THIS SIDE")
+# takes a dictionary, and makes a list of dictionaries and then sorts them. 
+# it also prints in a way that looks nice
+def list_of_dictionaries_sorted_in_reverse( some_dict ):
+    dictionary_items = some_dict.items()
+    char_and_number = []
+
+    for item in dictionary_items:
+        char, num = item
+        char_and_number.append({"char":char, "num": num})
+    
+    char_and_number.sort(reverse=True,key=sort_on)
+    return char_and_number
+
+
+random = {
+    "a": 4,
+    "b": 5,
+    "c": 23,
+    "d": 1,
+    "e": 400
+}
